@@ -23,23 +23,23 @@ void foo_mark(void * obj) {
 
 void foo_compact(void * obj) {
     values_t *data = (values_t *)obj;
-    rb_gc_location(data->one);
-    rb_gc_location(data->two);
-    rb_gc_location(data->three);
-    rb_gc_location(data->four);
-    rb_gc_location(data->five);
-    rb_gc_location(data->six);
-    rb_gc_location(data->seven);
+    data->one = rb_gc_location(data->one);
+    data->two = rb_gc_location(data->two);
+    data->three = rb_gc_location(data->three);
+    data->four = rb_gc_location(data->four);
+    data->five = rb_gc_location(data->five);
+    data->six = rb_gc_location(data->six);
+    data->seven = rb_gc_location(data->seven);
 }
 
 const size_t value_offsets[] = {
     RUBY_REF_EDGE(simple_values, one),
-    RUBY_REF_EDGE(simple_values, one),
-    RUBY_REF_EDGE(simple_values, one),
-    RUBY_REF_EDGE(simple_values, one),
-    RUBY_REF_EDGE(simple_values, one),
-    RUBY_REF_EDGE(simple_values, one),
-    RUBY_REF_EDGE(simple_values, one),
+    RUBY_REF_EDGE(simple_values, two),
+    RUBY_REF_EDGE(simple_values, three),
+    RUBY_REF_EDGE(simple_values, four),
+    RUBY_REF_EDGE(simple_values, five),
+    RUBY_REF_EDGE(simple_values, six),
+    RUBY_REF_EDGE(simple_values, seven),
     RUBY_REF_END
 };
 
