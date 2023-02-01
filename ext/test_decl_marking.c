@@ -8,6 +8,19 @@ typedef struct simple_values {
     VALUE five;
     VALUE six;
     VALUE seven;
+    VALUE eight;
+    VALUE nine;
+    VALUE ten;
+    VALUE eleven;
+    VALUE twelve;
+    VALUE thirteen;
+    VALUE fourteen;
+    VALUE fifteen;
+    VALUE sixteen;
+    VALUE seventeen;
+    VALUE eighteen;
+    VALUE nineteen;
+    VALUE twenty;
 } values_t;
 
 void foo_mark(void * obj) {
@@ -19,6 +32,19 @@ void foo_mark(void * obj) {
     rb_gc_mark_movable(data->five);
     rb_gc_mark_movable(data->six);
     rb_gc_mark_movable(data->seven);
+    rb_gc_mark_movable(data->eight);
+    rb_gc_mark_movable(data->nine);
+    rb_gc_mark_movable(data->ten);
+    rb_gc_mark_movable(data->eleven);
+    rb_gc_mark_movable(data->twelve);
+    rb_gc_mark_movable(data->thirteen);
+    rb_gc_mark_movable(data->fourteen);
+    rb_gc_mark_movable(data->fifteen);
+    rb_gc_mark_movable(data->sixteen);
+    rb_gc_mark_movable(data->seventeen);
+    rb_gc_mark_movable(data->eighteen);
+    rb_gc_mark_movable(data->nineteen);
+    rb_gc_mark_movable(data->twenty);
 }
 
 void foo_compact(void * obj) {
@@ -30,6 +56,19 @@ void foo_compact(void * obj) {
     data->five = rb_gc_location(data->five);
     data->six = rb_gc_location(data->six);
     data->seven = rb_gc_location(data->seven);
+    data->eight = rb_gc_location(data->eight);
+    data->nine = rb_gc_location(data->nine);
+    data->ten = rb_gc_location(data->ten);
+    data->eleven = rb_gc_location(data->eleven);
+    data->twelve = rb_gc_location(data->twelve);
+    data->thirteen = rb_gc_location(data->thirteen);
+    data->fourteen = rb_gc_location(data->fourteen);
+    data->fifteen = rb_gc_location(data->fifteen);
+    data->sixteen = rb_gc_location(data->sixteen);
+    data->seventeen = rb_gc_location(data->seventeen);
+    data->eighteen = rb_gc_location(data->eighteen);
+    data->nineteen = rb_gc_location(data->nineteen);
+    data->twenty = rb_gc_location(data->twenty);
 }
 
 const size_t value_offsets[] = {
@@ -40,6 +79,19 @@ const size_t value_offsets[] = {
     RUBY_REF_EDGE(simple_values, five),
     RUBY_REF_EDGE(simple_values, six),
     RUBY_REF_EDGE(simple_values, seven),
+    RUBY_REF_EDGE(simple_values, eight),
+    RUBY_REF_EDGE(simple_values, nine),
+    RUBY_REF_EDGE(simple_values, ten),
+    RUBY_REF_EDGE(simple_values, eleven),
+    RUBY_REF_EDGE(simple_values, twelve),
+    RUBY_REF_EDGE(simple_values, thirteen),
+    RUBY_REF_EDGE(simple_values, fourteen),
+    RUBY_REF_EDGE(simple_values, fifteen),
+    RUBY_REF_EDGE(simple_values, sixteen),
+    RUBY_REF_EDGE(simple_values, seventeen),
+    RUBY_REF_EDGE(simple_values, eighteen),
+    RUBY_REF_EDGE(simple_values, nineteen),
+    RUBY_REF_EDGE(simple_values, twenty),
     RUBY_REF_END
 };
 
