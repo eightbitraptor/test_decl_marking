@@ -118,11 +118,9 @@ const rb_data_type_t foo_decl_data_type = {
     .data = (void *)value_offsets
 };
 
-VALUE
-simple_marking_allocate(VALUE klass) {
-    values_t *data;
-    VALUE obj = TypedData_Make_Struct(klass, values_t, &foo_callback_data_type, data);
-
+void
+assign_values(values_t *data)
+{
     VALUE string_one = rb_str_new_cstr("a");
     VALUE string_two = rb_str_new_cstr("b");
     VALUE string_three = rb_str_new_cstr("c");
@@ -130,6 +128,19 @@ simple_marking_allocate(VALUE klass) {
     VALUE string_five = rb_str_new_cstr("e");
     VALUE string_six = rb_str_new_cstr("f");
     VALUE string_seven = rb_str_new_cstr("g");
+    VALUE string_eight = rb_str_new_cstr("a");
+    VALUE string_nine = rb_str_new_cstr("b");
+    VALUE string_ten = rb_str_new_cstr("c");
+    VALUE string_eleven = rb_str_new_cstr("d");
+    VALUE string_twelve = rb_str_new_cstr("e");
+    VALUE string_thirteen = rb_str_new_cstr("f");
+    VALUE string_fourteen = rb_str_new_cstr("g");
+    VALUE string_fifteen = rb_str_new_cstr("a");
+    VALUE string_sixteen = rb_str_new_cstr("b");
+    VALUE string_seventeen = rb_str_new_cstr("c");
+    VALUE string_eighteen = rb_str_new_cstr("d");
+    VALUE string_nineteen = rb_str_new_cstr("e");
+    VALUE string_twenty = rb_str_new_cstr("f");
 
     data->one = string_one;
     data->two = string_two;
@@ -138,6 +149,27 @@ simple_marking_allocate(VALUE klass) {
     data->five = string_five;
     data->six = string_six;
     data->seven = string_seven;
+    data->eight = string_eight;
+    data->nine = string_nine;
+    data->ten = string_ten;
+    data->eleven = string_eleven;
+    data->twelve = string_twelve;
+    data->thirteen = string_thirteen;
+    data->fourteen = string_fourteen;
+    data->fifteen = string_fifteen;
+    data->sixteen = string_sixteen;
+    data->seventeen = string_seventeen;
+    data->eighteen = string_eighteen;
+    data->nineteen = string_nineteen;
+    data->twenty = string_twenty;
+}
+
+VALUE
+simple_marking_allocate(VALUE klass) {
+    values_t *data;
+    VALUE obj = TypedData_Make_Struct(klass, values_t, &foo_callback_data_type, data);
+
+    assign_values(data);
 
     return obj;
 }
@@ -147,21 +179,7 @@ decl_marking_allocate(VALUE klass) {
     values_t *data;
     VALUE obj = TypedData_Make_Struct(klass, values_t, &foo_decl_data_type, data);
 
-    VALUE string_one = rb_str_new_cstr("a");
-    VALUE string_two = rb_str_new_cstr("b");
-    VALUE string_three = rb_str_new_cstr("c");
-    VALUE string_four = rb_str_new_cstr("d");
-    VALUE string_five = rb_str_new_cstr("e");
-    VALUE string_six = rb_str_new_cstr("f");
-    VALUE string_seven = rb_str_new_cstr("g");
-
-    data->one = string_one;
-    data->two = string_two;
-    data->three = string_three;
-    data->four = string_four;
-    data->five = string_five;
-    data->six = string_six;
-    data->seven = string_seven;
+    assign_values(data);
 
     return obj;
 }
