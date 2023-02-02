@@ -1,5 +1,5 @@
 ruby_bin_path = "~/.rubies/mvh-declarative-marking/bin/ruby"
-RUNS = 100
+RUNS = 50
 
 output = []
 RUNS.times do
