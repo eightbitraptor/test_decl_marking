@@ -10,4 +10,5 @@ def create_simple_objects
 end
 
 create_simple_objects
-GC.verify_compaction_references(toward: :empty, expand_heap: true)
+GC.compact
+puts GC.stat
