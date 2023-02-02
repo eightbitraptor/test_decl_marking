@@ -10,5 +10,5 @@ def create_decl_objects
 end
 
 create_decl_objects
-GC.compact
+GC.verify_compaction_references(toward: :empty, expand_heap: true)
 puts GC.stat
